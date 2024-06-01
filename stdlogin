@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    fieldset {
+        margin-top: 100px;
+        width: 700px;
+    }
+    
+    div {
+        background-color: rgb(54, 32, 4);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        height: 50px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+</head>
+<center>
+
+    <body bgcolor="#b3d9ff">
+        <div class="d2">
+            <style="margin-top:-10px;">
+                <h1 style=" color:aliceblue ">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</h1>
+            
+
+        </div>
+        <div1>
+            <h1> STUDENT LOGIN PAGE</h1>
+        </div1>
+        <fieldset>
+            <form action="">
+                <table style="line-height: 2.5;">
+                    <tr>
+                        <td><label>Enter your name:</label></td>
+                        <td><input type="text" name="txtname" id="nametxt"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Enter your USN:</label></td>
+                        <td><input type="text" id="usntxt" name="txtusn"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Select semester:</label></td>
+                        <td><select name="semester">
+        <option value="">Select</option>
+        <option value="">1st sem</option>
+        <option value="">2nd sem</option>
+        <option value="">3rd sem</option>
+        <option value="">4th sem</option>
+        <option value="">5th sem</option>
+        <option value="">6th sem</option>
+        <option value="">7th sem</option>
+        <option value="">8th sem</option>
+        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label>Select Divison:</label></td>
+                        <td><select name="semester">
+        <option value="">Select</option>
+        <option value="">Div A</option>
+        <option value="">Div B</option>
+        </select></td>
+                    </tr>
+                    <table style="line-height: 2.5; ">
+                        <tr>
+                            <td><label>Enter your password:</label></td>
+                            <td><input type="password" name="password" id="pass"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" onclick="return validate();">Submit</button></td>
+                        </tr>
+                    </table>
+            </form>
+            <a href="signup.html">Forget password</a>
+        </fieldset>
+    </body>
+</center>
+
+</html>
+<script>
+    function validate() {
+        var name = document.getElementById("nametxt").value;
+        var usn = document.getElementById("usntxt").value;
+        var pat1 = /^[a-zA-Z '-]+$/;
+        var pass = document.getElementById("pass").value;
+        var pat2 = /^[2-9][A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{3}$/;
+        if (name == "") {
+            alert("You didn't entered the name.......!");
+        } else {
+            if (name.match(pat1)) {} else {
+                alert("Invalid type of name entered...Please Enter your name properly...!");
+                return false;
+            }
+        }
+        if (usn == "") {
+            alert("Please enter your USN.....!");
+            return false;
+        } else {
+            if (usn.match(pat2)) {} else {
+                alert("Invalid Usn number....!");
+                return false;
+            }
+        }
+        if (pass == "") {
+            alert("Password Not entered......!");
+            return false;
+        }
+        if (usn != "" && name != "") {
+            sessionStorage.setItem('user', name);
+            window.open("/home/devildk125/Documents/works/Deepak project/html/attendece.html");
+            return true;
+        }
+    }
+</script>
